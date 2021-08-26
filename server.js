@@ -1,6 +1,9 @@
 const express = require('express')
 const app = express()
 const bcrypt = require('bcrypt')
+const { validate, getAddressInfo } = require('bitcoin-address-validation');
+var bitcore = require('bitcore-lib');
+var Message = bitcore.Message;
 
 app.use(express.json())
 const users=[]
