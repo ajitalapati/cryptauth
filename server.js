@@ -6,20 +6,26 @@ const { validate, getAddressInfo } = require('bitcoin-address-validation');
 var bitcore = require('bitcore-lib');
 var Message = bitcore.Message;
 
-
+var msg = new Message('The dude abides');
 app.use(express.json())
 const users=[]
+const btcaddr = []
 
-app.get('/users', (req, res) => {
-    res.json(users)
+app.get('/btcaddr', (req, res) => {
+    res.json(btcaddr)
 })
 
-app.post('/users', async (req, res) => {
+app.post('/btcaddr', async (req, res) => {
     try{
-        const hashedPw = await bcrypt.hash(req.body.password, 10)
-        const user = {name: req.body.name, password: hashedPw}
-        users.push(user)
-        res.status(201).send()
+        if(msg.verify(req.body.addr, req.body.sig)){
+            const user = {addr: req.body.addr}
+            btcaddr.push(user)
+            res.status(201).send()
+        }
+        else{
+            console.log("you don't own this address")
+        }
+        
     }
     catch{res.status(500).send()}
 })
