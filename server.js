@@ -8,7 +8,6 @@ var Message = bitcore.Message;
 
 var msg = new Message('The dude abides');
 app.use(express.json())
-const users=[]
 const btcaddr = []
 
 app.get('/btcaddr', (req, res) => {
