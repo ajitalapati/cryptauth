@@ -36,7 +36,7 @@ app.post('/btcaddr/login', async (req, res) => {
         return res.status(400).send("User not found")
     }
     try{
-        if(await msg.verify(req.body.addr, req.body.sig)){
+        if(await msg.verify(user.addr, req.body.sig)){
             res.send('Success')
         }
         else{
