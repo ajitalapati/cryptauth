@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Ajax Api call by jQuery</title>
+    <title>Cryptauth: a new way to sign in</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
       $(document).ready(function() {
@@ -17,19 +18,29 @@
         });
       });
     </script>
-
-    <script>
-        const xhttp = new XMLHttpRequest();
-        xhttp.onload = function() {
-            console.log(this.responseText);
-        }
-        xhttp.open("GET", "http://localhost:3000/btcaddr");
-        xhttp.send();
-    </script>
+    <link rel="icon" type="image/png" href="img/btccoin.png"/>
   </head>
 
   <body>
-      <h1>Cryptauth</h1>
-      <p>A new way to sign in</p>
+    <div style="width: 50%; margin: auto;">
+      <form class="form-signin">
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">Cryptauth</h1>
+        <img src="img/Expanded-Blockchain-Linear Colour-40.png" class="rounded mx-auto d-block" style="height:150px">
+        <code>A new way to sign in</code>
+      </div>
+      <div class="form-label-group">
+        <input type="bitcoin" id="inputBitcoin" class="form-control" placeholder="Bitcoin address" required="" autofocus="">
+        <label for="inputBitcoin">Bitcoin address</label>
+      </div>
+      <div class="form-label-group">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <label for="inputPassword">Password</label>
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+    </div>
   </body>
+
 </html>

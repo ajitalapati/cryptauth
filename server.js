@@ -8,6 +8,10 @@ var Message = bitcore.Message;
 
 var msg = new Message('The dude abides');
 app.use(express.json())
+app.use((req, res, next) => {
+    next();
+});
+
 const btcaddr = []
 
 app.get('/btcaddr', (req, res) => {
