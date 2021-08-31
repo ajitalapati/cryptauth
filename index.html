@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Ajax Api call by jQuery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $.ajax({
+          url: "http://localhost:3000/btcaddr",
+          type: "GET",
+          success: function(result) {
+            console.log(result);
+          },
+          error: function(error) {
+            console.log(error);
+          }
+        });
+      });
+    </script>
+
+    <script>
+        const xhttp = new XMLHttpRequest();
+        xhttp.onload = function() {
+            console.log(this.responseText);
+        }
+        xhttp.open("GET", "http://localhost:3000/btcaddr");
+        xhttp.send();
+    </script>
+  </head>
+
+  <body>
+      <h1>Cryptauth</h1>
+      <p>A new way to sign in</p>
+  </body>
+</html>
