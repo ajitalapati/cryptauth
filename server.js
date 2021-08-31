@@ -23,20 +23,20 @@ app.post('/btcaddr', async (req, res) => {
             res.status(201).send()
         }
         else{
-            console.log("you don't own this address")
+            res.send("You don't own this address")
         }
         
     }
     catch{res.status(500).send()}
 })
 
-app.post('/users/login', async (req, res) => {
-    const user = users.find(user=> user.name === req.body.name)
+app.post('/btcaddr/login', async (req, res) => {
+    const user = btcaddr.find(user=> user.addr === req.body.addr)
     if(user == null){
         return res.status(400).send("User not found")
     }
     try{
-        if(await bcrypt.compare(req.body.password, user.password)){
+        if(await msg.verify(req.body.addr, req.body.sig)){
             res.send('Success')
         }
         else{
@@ -49,4 +49,3 @@ app.post('/users/login', async (req, res) => {
 })
 
 app.listen(3000)
-

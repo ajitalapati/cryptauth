@@ -4,6 +4,7 @@ GET http://localhost:3000/btcaddr
 ###
 POST http://localhost:3000/btcaddr
 Content-Type: application/json
+//request to make and account, with signed message "the dude abides"
 
 {
     "addr": "13Js7D3q4KvfSqgKN8LpNq57gcahrVc5JZ",
@@ -11,10 +12,10 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/users/login
+POST http://localhost:3000/btcaddr/login
 Content-Type: application/json
 
 {
-    "name": "ajit",
-    "password": "bubbcity"
+    "addr": "13Js7D3q4KvfSqgKN8LpNq57gcahrVc5JZ",
+    "sig": "H+/grsJ9K2XtbWAwAwpkypVpuRP++Grm4H+mycTUBcBbJ77CVEsU54rdSFJoJMngh0NtqDEF4tnojMd/aRH6F18="
 }
