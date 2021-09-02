@@ -8,13 +8,14 @@
   </head>
 
   <body>
+    <style>body{background-color: #dddddd;}</style>
     <br>
-    <button id="get">Get</button>
-    <div style="width: 50%; margin: auto;">
-      <form class="form-signin" onsubmit="post()">
+    <button id="get" onclick="get()">Get</button>
+    <div style="width: 40%; margin: auto;">
+      <form class="form-signin">
       <div class="text-center mb-4">
-        <h1 class="h2 mb-3">Cryptauth</h1>
-        <img src="img/btccpu.png" class="rounded mx-auto d-block" style="height:150px">
+        <h1 class="h1 mb-3">Cryptauth</h1>
+        <img src="img/btccpu.png" class="rounded mx-auto d-block" style="height:250px">
         <code>A new way to sign in</code>
       </div>
       <div class="form-label-group">
@@ -22,14 +23,14 @@
         <label for="inputBitcoin">Bitcoin address</label>
       </div>
       <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Signed Message">
+        <input type="signature" id="inputPassword" class="form-control" placeholder="Signed Message">
         <label for="inputPassword">Signed Message</label>
       </div>
 
-      <button class="btn btn-lg btn-primary btn-block" id="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" onclick="signIn(document.getElementById('inputBitcoin').value,document.getElementById('inputPassword').value)">Sign in</button>
+      <button class="btn btn-lg btn-secondary btn-block" onclick="createAccount(document.getElementById('inputBitcoin').value,document.getElementById('inputPassword').value)">Create Account</button>
       </form>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="client.js"></script>
   </body>
 
