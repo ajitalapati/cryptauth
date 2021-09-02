@@ -3,45 +3,34 @@
   <head>
     <title>Cryptauth: a new way to sign in</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-      $(document).ready(function() {
-        $.ajax({
-          url: "http://localhost:3000/btcaddr",
-          type: "GET",
-          success: function(result) {
-            console.log(result);
-          },
-          error: function(error) {
-            console.log(error);
-          }
-        });
-      });
-    </script>
+    
     <link rel="icon" type="image/png" href="img/btccoin.png"/>
   </head>
 
   <body>
     <br>
+    <button id="get">Get</button>
     <div style="width: 50%; margin: auto;">
-      <form class="form-signin">
+      <form class="form-signin" onsubmit="post()">
       <div class="text-center mb-4">
         <h1 class="h2 mb-3">Cryptauth</h1>
         <img src="img/btccpu.png" class="rounded mx-auto d-block" style="height:150px">
         <code>A new way to sign in</code>
       </div>
       <div class="form-label-group">
-        <input type="bitcoin" id="inputBitcoin" class="form-control" placeholder="Bitcoin address" required="" autofocus="">
+        <input type="bitcoin" id="inputBitcoin" class="form-control" placeholder="Bitcoin address" autofocus="">
         <label for="inputBitcoin">Bitcoin address</label>
       </div>
       <div class="form-label-group">
-        <input type="password" id="inputPassword" class="form-control" placeholder="Signed Message" required="">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Signed Message">
         <label for="inputPassword">Signed Message</label>
       </div>
 
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button class="btn btn-lg btn-primary btn-block" id="submit">Sign in</button>
       </form>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="client.js"></script>
   </body>
 
 </html>
