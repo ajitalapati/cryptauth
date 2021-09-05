@@ -19,17 +19,20 @@ function createAccount(addr, sig){
     .catch(function(res){ console.log(res) });
 }
 
-function signIn(addr, sig){
-    var data = {"addr": addr, "sig": sig}
-    fetch("http://localhost:3000/btcaddr/login",
+async function signIn(addr, sig){
+    var input = {"addr": addr, "sig": sig}
+    var num;
+    await fetch("http://localhost:3000/btcaddr/login",
     {
         headers: {
         'Content-Type': 'application/json'
         },
         method: "POST",
-        body: JSON.stringify(data)
+        body: JSON.stringify(input)
     })
-    .then(res => console.log(res))
-    .catch(function(res){ console.log(res) });
-    window.location.replace("http://www.w3schools.com");
+    .then(res => num=res.status);
+    if(num==200){
+        console.log("success");
+        window.location.replace("http://www.tesla.com");
+    }
 }

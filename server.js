@@ -46,7 +46,7 @@ app.post('/btcaddr/login', async (req, res) => {
             res.send('Success')
         }
         else{
-            res.send("Not Allowed In")
+            res.status(500).send("Not Allowed In")
         }
     }
     catch{
