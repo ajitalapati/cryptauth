@@ -1,3 +1,5 @@
+$(".success").hide();
+
 function get(){
     fetch("http://localhost:3000/btcaddr", 
     {headers: {'Content-Type': 'application/json'}})
@@ -5,9 +7,10 @@ function get(){
     .then(data => console.log(data));
 }
 
-function createAccount(addr, sig){
+async function createAccount(addr, sig){
     var data = {"addr": addr, "sig": sig}
-    fetch("http://localhost:3000/btcaddr",
+    var num;
+    await fetch("http://localhost:3000/btcaddr",
     {
         headers: {
         'Content-Type': 'application/json'
@@ -15,8 +18,13 @@ function createAccount(addr, sig){
         method: "POST",
         body: JSON.stringify(data)
     })
-    .then(function(res){ console.log(res) })
-    .catch(function(res){ console.log(res) });
+    .then(res => num=res.status);
+    if(num==201){
+        $(".sign-in-form").hide();
+        $(".successtxt").text("You have successfully created an account");
+        $(".successimg").attr("src", "img/giphy.gif");
+        $(".success").show();
+    }
 }
 
 async function signIn(addr, sig){
@@ -33,6 +41,10 @@ async function signIn(addr, sig){
     .then(res => num=res.status);
     if(num==200){
         console.log("success");
-        window.location.replace("http://www.tesla.com");
+
+        $(".sign-in-form").hide();
+        $(".successtxt").text("You have successfully signed in");
+        $(".successimg").attr("src", "img/giphy.gif");
+        $(".success").show();
     }
 }

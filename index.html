@@ -10,12 +10,12 @@
   <body>
     <style>body{background-color: #dddddd;}</style>
     <br>
-    <button id="get" onclick="get()">Get</button>
-    <div style="width: 40%; margin: auto;">
+    
+    <div class="sign-in-form" style="width: 40%; margin: auto;">
       <div class="text-center mb-4">
         <h1 class="h1 mb-3">Cryptauth</h1>
-        <img src="img/btccpu.png" class="rounded mx-auto d-block" style="height:250px">
-        <code>A new way to sign in</code>
+        <img src="img/lock.png" class="rounded mx-auto d-block" style="height:250px">
+        <samp>A new way to sign in</samp>
       </div>
       <div class="form-label-group">
         <input type="bitcoin" id="inputBitcoin" class="form-control" placeholder="Bitcoin address" autofocus="">
@@ -29,7 +29,14 @@
       <button class="btn btn-lg btn-primary btn-block" onclick="signIn(document.getElementById('inputBitcoin').value,document.getElementById('inputPassword').value)">Sign in</button>
       <button class="btn btn-lg btn-secondary btn-block" onclick="createAccount(document.getElementById('inputBitcoin').value,document.getElementById('inputPassword').value)">Create Account</button>
     </div>
-    <script src="client.js"></script>
+    
+    <div class="text-center mb-4 success"><br><br><br>
+      <img src="" class="rounded mx-auto d-block successimg" style="height:150px">
+      <samp class="successtxt">you successfully signed in</samp>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="client.js" ></script>
   </body>
 
 </html>
