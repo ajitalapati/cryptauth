@@ -1,3 +1,6 @@
+//this serves as server-side code for bitcoin
+//sign in mechanism
+
 const express = require('express')
 const app = express()
 
